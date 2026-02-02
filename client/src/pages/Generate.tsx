@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle } from "../assets/assets.js";
-
 import SoftBackdrop from "../components/SoftBackdrop";
 import { button } from "motion/react-client";
 import AppRatioSelector from "../components/AppRatioSelector.js";
 import StyleSelector from "../components/StyleSelector.js";
 import ColorschemeSelector from "../components/ColorschemeSelector.js";
+import PreviewPanel from "../components/PreviewPanel.js";
 const Generate = () => {
 const {id }= useParams();
 const [title , settitle ]= useState("");
@@ -100,10 +100,15 @@ Additional Prompts
 
       </div>
 
-      <div>
-
-      </div>
-
+    </div>
+    {/* Right Panel */}
+    <div>
+<div className="p-6 rounded-2xl bg-white/8 border border-white/10 shadow-xl">
+  <h2 className="text-lg font-semibold text-zinc-100">
+    Preview 
+  </h2>
+  <PreviewPanel thumbnail= {thumbnails} isLoading={loading} aspectRatio={aspectRatio}/>
+</div>
     </div>
 
   </div>
