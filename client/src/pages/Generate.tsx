@@ -30,7 +30,11 @@ const handleGenerate= async ()=>{
 
 const fetchtumbnail = async()=>{
   if (id) {
-    const thumbnail:any = dummyThumbnails.find(()=>thumbnails?._id===id);
+    // const thumbnail:any = dummyThumbnails.find(()=>thumbnails?._id===id);
+    const thumbnail : any = dummyThumbnails.find(
+  (item) => item._id === id
+);
+
     setThumbnails(thumbnail);
     setadditiondetails(thumbnail.user_prompt)
     settitle(thumbnail.title)
@@ -38,7 +42,6 @@ const fetchtumbnail = async()=>{
     setAspectRatio(thumbnail.aspect_ratio)
     setstyle(thumbnail.style)
     setLoading(false);
-    
   }
 
 }
